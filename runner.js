@@ -5,6 +5,13 @@ class Runner {
 	constructor() {
 		this.testFiles = [];
 	}
+
+	async runTests() {
+		for (let file of this.testFiles) {
+			require(file.name);
+		}
+	}
+
 	async collectFiles(targetPath) {
 		const files = await fs.promises.readdir(targetPath);
 
